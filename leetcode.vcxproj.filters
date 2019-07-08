@@ -9,6 +9,18 @@
     <ClCompile Include="7.cpp">
       <Filter>leetcode</Filter>
     </ClCompile>
+    <ClCompile Include="8.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="9.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="10.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="11.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
