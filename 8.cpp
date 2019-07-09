@@ -50,7 +50,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-class Solution {
+class Solution8 {
 public:
 	bool is_digit(char ch)
 	{
@@ -98,7 +98,7 @@ public:
 
 TEST(leetcode, 8)
 {
-	Solution s;
+	Solution8 s;
 	cout << s.myAtoi("+1") << endl;
 	cout << s.myAtoi("4193-with words") << endl;
 	cout << s.myAtoi("words and 9-87") << endl;

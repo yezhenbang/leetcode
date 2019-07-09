@@ -26,7 +26,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-class Solution {
+class Solution9 {
 public:
 	/*20 ms	8 MB*/
 	bool isPalindrome(int x) {
@@ -50,7 +50,7 @@ public:
 
 TEST(leetcode, 9)
 {
-	Solution s;
+	Solution9 s;
 
 	cout << s.isPalindrome(100) << endl;
 	cout << s.isPalindrome(10) << endl;

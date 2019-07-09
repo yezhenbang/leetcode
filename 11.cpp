@@ -21,7 +21,7 @@
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-class Solution
+class Solution11
 {
 public:
 
@@ -54,7 +54,7 @@ public:
 
 TEST(leetcode, 11)
 {
-	Solution s;
+	Solution11 s;
 	vector<int> a = {1, 8};
 	cout << s.maxArea(a) << endl;
 }

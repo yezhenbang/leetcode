@@ -31,7 +31,7 @@ string convert(string s, int numRows);
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-class Solution {
+class Solution6 {
 public:
 	string convert(string s, int numRows) {
 		string rst = "";
@@ -69,6 +69,6 @@ public:
 TEST(leetcode, 6)
 {
 	string aa = "aT";
-	Solution s;
+	Solution6 s;
 	cout << s.convert(aa, 1);
 }

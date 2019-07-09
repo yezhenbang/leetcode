@@ -64,7 +64,7 @@ aabc*ca
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
 
-class Solution {
+class Solution10 {
 public:
 	/*0 ms	8.7 MB*/
 	bool isMatch(string s, string p) {
@@ -133,7 +133,7 @@ public:
 
 TEST(leetcode, 10)
 {
-	Solution s;
+	Solution10 s;
 	cout << s.isMatch("aa", "a") << endl;
 	cout << s.isMatch("aa", "a*") << endl;
 	cout << s.isMatch("ab", ".*") << endl;

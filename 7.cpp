@@ -23,7 +23,7 @@
 链接：https://leetcode-cn.com/problems/reverse-integer
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
-class Solution
+class Solution7
 {
 public:
 	const int max = 2147483647;
@@ -88,6 +88,6 @@ public:
 
 TEST(leetcode, 7)
 {
-	Solution s;
+	Solution7 s;
 	cout << s.reverse(2147400);
 }
