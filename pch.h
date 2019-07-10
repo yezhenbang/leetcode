@@ -27,3 +27,13 @@ inline void showAndDeleteList(ListNode* head)
 	}
 }
 
+template <typename T>
+void showVector(vector<T> vec)
+{
+	for (auto i : vec)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
+}
+

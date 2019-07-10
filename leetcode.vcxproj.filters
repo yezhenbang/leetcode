@@ -51,6 +51,12 @@
     <ClCompile Include="21.cpp">
       <Filter>leetcode</Filter>
     </ClCompile>
+    <ClCompile Include="22.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="23.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
