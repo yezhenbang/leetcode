@@ -33,6 +33,24 @@
     <ClCompile Include="15.cpp">
       <Filter>leetcode</Filter>
     </ClCompile>
+    <ClCompile Include="16.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="17.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="18.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="19.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="20.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="21.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

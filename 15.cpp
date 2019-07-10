@@ -17,20 +17,55 @@
 链接：https://leetcode-cn.com/problems/3sum
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 */
-class Solution {
+class Solution15 {
 public:
 	vector<vector<int>> threeSum(vector<int>& nums) {
+		vector<vector<int>> rst;
+		if (nums.size() < 3)
+			return rst;
 		sort(nums.begin(), nums.end());
 
-		vector<vector<int>> rst;
 		for (int i = 0; i < nums.size() - 2; i++)
 		{
-			
+			if (i > 0 && nums[i] == nums[i - 1])
+				continue;
+			int left = i + 1, right = nums.size() - 1;
+			while (left < right)
+			{
+				if (nums[i] + nums[left] + nums[right] == 0)
+				{
+					vector<int> one = { nums[i], nums[left], nums[right] };
+					rst.push_back(one);
+					while (left < right && nums[++left] == nums[left - 1]) 
+						;
+					while (left < right && nums[--right] == nums[right + 1]) 
+						;
+					continue;
+				}
+				if (nums[i] + nums[left] + nums[right] > 0)
+				{
+					right--;
+				}
+				if (nums[i] + nums[left] + nums[right] < 0)
+				{
+					left++;
+				}
+			}
 		}
+
+		return rst;
 	}
 };
 
-TEST(leetcode, testing_)
+TEST(leetcode, 15)
 {
-	Solution s;
+	vector<int> nums = { -1,0,1};
+	Solution15 s;
+	auto& rst = s.threeSum(nums);
+	for (auto& i : rst)
+	{
+		for (auto& j : i)
+			cout << j << " ";
+		cout << endl;
+	}
 }
