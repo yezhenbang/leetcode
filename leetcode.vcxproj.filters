@@ -78,6 +78,9 @@
     <ClInclude Include="util\dp.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="heap.h">
+      <Filter>util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
