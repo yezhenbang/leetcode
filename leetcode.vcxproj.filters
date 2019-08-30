@@ -72,6 +72,9 @@
     <ClCompile Include="5.cpp">
       <Filter>leetcode</Filter>
     </ClCompile>
+    <ClCompile Include="24.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />

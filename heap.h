@@ -15,6 +15,18 @@ public:
 	}
 	~Heap() = default;
 
+	bool empty()
+	{
+		return data_.empty();
+	}
+
+	T& head()
+	{
+		if (data_.empty())
+			throw std::invalid_argument("Heap empty");
+		return data_[0];
+	}
+
 	void insert(const T& value)
 	{
 		data_.push_back(value);
@@ -40,6 +52,11 @@ public:
 		data_[0] = value;
 		heap_down(0);
 		return rst;
+	}
+
+	size_t size()
+	{
+		return data_.size();
 	}
 
 private:
