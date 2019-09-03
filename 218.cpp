@@ -36,10 +36,51 @@ enum b
 	height = 2
 };
 
-class Solution
+class Solution218
 {
 public:
+	// 36 ms	16.1 MB
 	vector<vector<int>> getSkyline(vector<vector<int>>& buildings)
+	{
+		vector<vector<int>> rst;
+		multiset<std::pair<int, int>, pairComp> x_set;
+
+		for (auto& building : buildings)
+		{
+			x_set.insert(std::pair<int, int>(building[0], -building[2]));
+			x_set.insert(std::pair<int, int>(building[1], building[2]));
+		}
+
+		multiset<int, greater<int>> h_set;
+		h_set.insert(0);
+		int last_height = 0;
+		int last_x = 0;
+
+		for (auto& x : x_set) 
+		{
+			if (x.second > 0) 
+			{
+				h_set.erase(h_set.find(x.second));
+			}
+			else 
+			{
+				h_set.insert(-x.second);
+			}
+
+			int highest = *h_set.begin();
+			if (highest != last_height) 
+			{
+				rst.push_back({ x.first, highest });
+				last_height = highest;
+				last_x = x.first;
+			}
+		}
+
+		return rst;
+	}
+
+	// 	108 ms	15.2 MB
+	vector<vector<int>> getSkyline1(vector<vector<int>>& buildings)
 	{
 		vector<vector<int>> rst;
 
@@ -75,66 +116,30 @@ public:
 
 		rst.pop_back();
 		return rst;
-
-		vector<int> cover;
-
-		for (int i = 0; i < buildings.size(); i++)
-		{
-			while (!heap.empty() && (heap.head()[b::right] < buildings[i][b::left] || buildings[i][b::left] == -1))
-			{
-				if (cover.empty())
-				{
-					cover = heap.pop();
-					if (!heap.empty() && cover[b::right] >= heap.head()[b::left] && cover[b::right] < heap.head()[b::right])
-						rst.push_back({ cover[b::right], heap.head()[b::height] });
-					else
-						rst.push_back({ cover[b::right], 0 });
-				}
-				else
-				{
-					if (cover[b::right] < heap.head()[b::right])
-					{
-						cover = heap.pop();
-						 
-						if (!heap.empty() && cover[b::right] >= heap.head()[b::left] && cover[b::right] < heap.head()[b::right])
-							rst.push_back({ cover[b::right], heap.head()[b::height] });
-						else
-							rst.push_back({ cover[b::right], 0 });
-					}
-					else
-					{
-						heap.pop();
-					}
-				}
-			}
-			if (heap.empty())
-			{
-				if (!cover.empty())
-					cover.clear();
-				rst.push_back({ buildings[i][b::left], buildings[i][b::height] });
-				heap.insert(buildings[i]);
-			}
-			else
-			{
-				if (heap.head()[b::height] < buildings[i][b::height])
-					rst.push_back({ buildings[i][b::left], buildings[i][b::height] });
-				heap.insert(buildings[i]);
-			}
-		}
-
-		rst.pop_back();
-		return rst;
 	}
+
+private:
+	struct pairComp {
+		bool operator() (const std::pair<int, int>& lhs, const std::pair<int, int>& rhs) const
+		{
+			if (lhs.first < rhs.first)
+				return true;
+			if (lhs.first > rhs.first)
+				return false;
+			return lhs.second < rhs.second;
+		}
+	};
 };
 
-TEST(leetcode, testing_)
+TEST(leetcode, testing_218)
 {
 	// vector<vector<int>> data = { {2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 25, 8} };
-	vector<vector<int>> data = { {2, 9, 10}, {3, 25, 15}, {5, 25, 12}, {15, 25, 10}, {19, 25, 8} };
+	//vector<vector<int>> data = { {2, 9, 10}, {3, 25, 15}, {5, 25, 12}, {15, 25, 10}, {19, 25, 8} };
+	vector<vector<int>> data = { {0, 9, 10}};
 	// vector<vector<int>> data = { {2, 3, 10}, {3, 7, 10}, {5, 12, 10}, {15, 20, 10}, {19, INT_MAX, 8} };
 	// vector<vector<int>> data = { {0, 5, 7}, {5, 10, 7}, {5, 10, 12}, {10, 15, 7}, {15, 20, 7} , {15, 20, 12} , {20, 25, 7} };
 	// vector<vector<int>> data = {};
-	Solution s;
+	Solution218 s;
 	data = s.getSkyline(data);
 	for (auto i : data)
 	{
