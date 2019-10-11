@@ -33,18 +33,25 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="common_define.h" />
     <ClInclude Include="heap.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="util\dp.h" />
+    <ClInclude Include="util\hash_map.h" />
+    <ClInclude Include="util\hp_multiply.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="1.cpp" />
     <ClCompile Include="10.cpp" />
     <ClCompile Include="11.cpp" />
     <ClCompile Include="12.cpp" />
+    <ClCompile Include="124.cpp" />
     <ClCompile Include="13.cpp" />
     <ClCompile Include="14.cpp" />
+    <ClCompile Include="142.cpp" />
+    <ClCompile Include="146.cpp" />
     <ClCompile Include="15.cpp" />
+    <ClCompile Include="155.cpp" />
     <ClCompile Include="16.cpp" />
     <ClCompile Include="17.cpp" />
     <ClCompile Include="18.cpp" />
@@ -55,8 +62,12 @@
     <ClCompile Include="22.cpp" />
     <ClCompile Include="23.cpp" />
     <ClCompile Include="218.cpp" />
+    <ClCompile Include="25.cpp" />
+    <ClCompile Include="26.cpp" />
     <ClCompile Include="3.cpp" />
+    <ClCompile Include="33.cpp" />
     <ClCompile Include="4.cpp" />
+    <ClCompile Include="43.cpp" />
     <ClCompile Include="5.cpp" />
     <ClCompile Include="6.cpp" />
     <ClCompile Include="7.cpp" />

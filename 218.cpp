@@ -131,7 +131,7 @@ private:
 	};
 };
 
-TEST(leetcode, testing_218)
+TEST(leetcode, 218)
 {
 	// vector<vector<int>> data = { {2, 9, 10}, {3, 7, 15}, {5, 12, 12}, {15, 20, 10}, {19, 25, 8} };
 	//vector<vector<int>> data = { {2, 9, 10}, {3, 25, 15}, {5, 25, 12}, {15, 25, 10}, {19, 25, 8} };

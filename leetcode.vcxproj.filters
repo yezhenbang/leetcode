@@ -75,6 +75,30 @@
     <ClCompile Include="218.cpp">
       <Filter>leetcode</Filter>
     </ClCompile>
+    <ClCompile Include="146.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="26.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="33.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="43.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="124.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="25.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="155.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="142.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -84,6 +108,13 @@
     <ClInclude Include="heap.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="util\hash_map.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="util\hp_multiply.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="common_define.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

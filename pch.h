@@ -5,15 +5,13 @@
 
 #pragma once
 
+#define _SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS 1
+
 #include "gtest/gtest.h"
+#include "common_define.h"
 
 using namespace std;
 
-struct ListNode {
-	int val;
-	ListNode* next;
-	ListNode(int x) : val(x), next(NULL) {}
-};
 
 inline void showAndDeleteList(ListNode* head)
 {
