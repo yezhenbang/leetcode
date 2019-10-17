@@ -91,7 +91,7 @@ public:
 };
 // @lc code=end
 
-TEST(leetcode, testing_142)
+TEST(leetcode, 142)
 {
 	ListNode* head = new ListNode(1);
 	head->next = new ListNode(2);

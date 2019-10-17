@@ -99,6 +99,21 @@
     <ClCompile Include="142.cpp">
       <Filter>leetcode</Filter>
     </ClCompile>
+    <ClCompile Include="413.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="446.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="395.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="488.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
+    <ClCompile Include="731.cpp">
+      <Filter>leetcode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
