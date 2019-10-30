@@ -73,7 +73,7 @@ private:
     int rst;
 };
 // @lc code=end
-TEST(leetcode, testing_395)
+TEST(leetcode, 395)
 {
 	Solution s;
 	cout << s.longestSubstring("a", 2);

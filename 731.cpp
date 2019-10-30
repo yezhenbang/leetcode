@@ -57,7 +57,129 @@
  */
 #include "pch.h"
 // @lc code=start
+
+/*
+const int MAX_LEN = 1000000000;
+const int MAX_VAL = 2;
+class MyCalendarTwo {
+public:
+	MyCalendarTwo() {
+		root = new SegTreeNode(0, MAX_LEN, 0);
+	}
+
+	~MyCalendarTwo() {
+		deleteTree(root);
+	}
+
+	bool book(int start, int end) {
+		if (check(root, start, end - 1) >= MAX_VAL)
+			return false;
+		update(root, start, end - 1, 1);
+		return true;
+	}
+
+private:
+	struct SegTreeNode {
+		int start;
+		int end;
+		int val;
+		bool can_stop;
+		SegTreeNode* left;
+		SegTreeNode* right;
+		SegTreeNode(int s, int e, int v) :start(s), end(e), val(v), left(nullptr), right(nullptr), can_stop(true) {}
+		SegTreeNode* Left() {
+			if (left == nullptr)
+				left = new SegTreeNode(start, (start + end) / 2, 0);
+			return left;
+		}
+		SegTreeNode* Right() {
+			if (right == nullptr)
+				right = new SegTreeNode((start + end) / 2 + 1, end, 0);
+			return right;
+		}
+	};
+
+	int check(SegTreeNode* node, int start, int end) {
+		if (start > end) return 0;
+		if (node->start == start && node->end == end)
+			return node->val;
+		if (node->can_stop)
+			return node->val;
+		int m = (node->start + node->end) / 2;
+		if (m >= end) {
+			return check(node->Left(), start, end);
+		}
+		if (m < start)
+			return check(node->Right(), start, end);
+		return max(check(node->Left(), start, m), check(node->Right(), m + 1, end));
+	}
+
+	int update(SegTreeNode* node, int start, int end, int offset) {
+		if (start > end) return 0;
+		if (node->can_stop && node->start == start && node->end == end) {
+			node->val += offset;
+			return node->val;
+		}
+		int m = (node->start + node->end) / 2;
+		if (node->can_stop) {
+			update(node->Left(), start, m, node->val);
+			update(node->Right(), m + 1, end, node->val);
+			node->can_stop = false;
+		}
+		if (m >= end) {
+			node->val = max(node->val, update(node->Left(), start, end, offset));
+		}
+		else if (m < start) {
+			node->val = max(node->val, update(node->Right(), start, end, offset));
+		}
+		else
+			node->val = max(node->val, max(update(node->Left(), start, m, offset), update(node->Right(), m + 1, end, offset)));
+		return node->val;
+	}
+
+	void deleteTree(SegTreeNode* node) {
+		if (node == nullptr) return;
+		deleteTree(node->left);
+		deleteTree(node->right);
+		delete node;
+	}
+
+	SegTreeNode* root;
+};
+*/
+
+//
+//int query(int start, int end) {
+//	if (s == start && e == end) return val;
+//	if (tag) return val;
+//	if (end <= m) return Left()->query(start, end);
+//	if (start >= m + 1) return Right()->query(start, end);
+//	return max(Left()->query(start, m), Right()->query(m + 1, end));
+//}
+//
+//void update(int start, int end, int offset) {
+//	if (tag && s == start && e == end) {
+//		val += offset;
+//		return;
+//	}
+//	if (tag) {
+//		Left()->update(s, m, val);
+//		Right()->update(m + 1, e, val);
+//		tag = false;
+//	}
+//	if (end <= m) Left()->update(start, end, offset);
+//	else if (start >= m + 1) Right()->update(start, end, offset);
+//	else {
+//		Left()->update(start, m, offset);
+//		Right()->update(m + 1, end, offset);
+//	}
+//	val = max(Left()->val, Right()->val);
+//}
+//};
+
+/*
 const int times_limit = 2;
+
 class MyCalendarTwo {
 public:
 	MyCalendarTwo() {
@@ -138,6 +260,66 @@ private:
 
 	map<int, Plan*> schedule;
 };
+*/
+
+struct Node {
+    int s;
+    int e;
+    bool tag;
+    int val;
+    int m;
+    Node* l;
+    Node* r;
+    Node(int s, int e) : l(nullptr), r(nullptr), s(s), e(e), m((s+e)/2), val(0), tag(true) {}
+    Node* Left() {
+        if (s == e) return nullptr;
+        return l = (l ? l : new Node(s, m));
+    }
+    Node* Right() {
+        if (s == e) return nullptr;
+        return r = (r ? r : new Node(m+1, e));
+    }
+    int query(int start, int end) {
+        if (s == start && e == end) return val;
+        if (tag) return val;
+        if (end <= m) return Left()->query(start, end);
+        if (start >= m+1) return Right()->query(start, end);
+        return max(Left()->query(start, m), Right()->query(m+1, end));
+    }
+    void update(int start, int end, int offset) {
+        if (tag && s == start && e == end) {
+            val += offset;
+            return;
+        }
+        if (tag) {
+            Left()->update(s, m, val);
+            Right()->update(m+1, e, val);
+            tag = false;
+        }
+        if (end <= m) Left()->update(start, end, offset);
+        else if (start >= m+1) Right()->update(start, end, offset);
+        else {
+            Left()->update(start, m, offset);
+            Right()->update(m+1, end, offset);
+        }
+        val = max(Left()->val, Right()->val);
+    }
+};
+
+class MyCalendarTwo {
+public:
+    Node* root;
+    MyCalendarTwo() {
+        root = new Node(0, 1000000000);
+    }
+    
+    bool book(int start, int end) {
+        if (root->query(start, end-1) >= 2) return false;
+        root->update(start, end-1, 1);
+        return true;
+    }
+};
+
 
 /**
  * Your MyCalendarTwo object will be instantiated and called as such:

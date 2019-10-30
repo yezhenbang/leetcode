@@ -130,6 +130,9 @@
       <Filter>util</Filter>
     </ClInclude>
     <ClInclude Include="common_define.h" />
+    <ClInclude Include="util\calc.hpp">
+      <Filter>util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

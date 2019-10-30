@@ -36,6 +36,7 @@
     <ClInclude Include="common_define.h" />
     <ClInclude Include="heap.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="util\calc.hpp" />
     <ClInclude Include="util\dp.h" />
     <ClInclude Include="util\hash_map.h" />
     <ClInclude Include="util\hp_multiply.h" />

@@ -115,7 +115,7 @@ private:
 };
 // @lc code=end
 
-TEST(leetcode, testing_488)
+TEST(leetcode, 488)
 {
 	Solution s;
 	cout << s.findMinStep("WWRRBBWW", "WRBRW");
